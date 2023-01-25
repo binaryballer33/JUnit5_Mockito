@@ -146,3 +146,21 @@ ___
     void testDisabled() {
         fail("This test should be disabled");
     }
+
+### Arrange Act Assert (AAA) Technique / Given When Then (GWT)
+    @Test
+    @EnabledOnOs(OS.MAC)
+    void testDivide_divisionEqualsZero() {
+        // Test usually follow the AAA method, Arrange, Act, Assert or the GWT Given, When, Then 
+
+        // Arrange or Given
+        int dividend = 0;
+        int divisor = 1;
+        int expected = 0;
+
+        // Act or When
+        int result = mathUtilsClient.divide(dividend, divisor);
+
+        // Assert or Then
+        assertEquals(expected, result,() -> "This Should Be Equal To " + expected);
+    }
