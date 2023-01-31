@@ -24,10 +24,18 @@ class MathUtilsTest {
         mathUtilsClient = new MathUtils();
     }
 
-    // executes after each tech method finishes
+    // executes after each test method finishes
     @AfterEach
     void tearDown() {
+        System.out.println("AfterEach Tearing Down!!!");
     }
+
+    @AfterAll
+    void cleanUp() {
+        // runs after all test methods have completed
+        System.out.println("AfterAll Clean Up!!!");
+    }
+
     @Test
     void testAdd() {
         assertEquals(5, mathUtilsClient.add(2,3));
@@ -65,7 +73,7 @@ class MathUtilsTest {
         }
 
         @Test
-        void testMultiplyPositve() {
+        void testMultiplyPositive() {
             assertEquals(6, mathUtilsClient.multiply(2,3));
         }
     }

@@ -79,9 +79,17 @@ ___
     }
 
 #### AfterEach
-    // executes after each tech method finishes
+    // executes after each test method finishes
     @AfterEach
     void tearDown() {
+        System.out.println("AfterEach Tearing Down!!!");
+    }
+
+#### AfterAll
+    @AfterAll
+    void cleanUp() {
+        // runs after all test methods have completed
+        System.out.println("AfterAll Clean Up!!!");
     }
 
 #### Test
@@ -164,3 +172,19 @@ ___
         // Assert or Then
         assertEquals(expected, result,() -> "This Should Be Equal To " + expected);
     }
+
+### Running Test In Order By Name
+```
+@TestMethodOrder(MethodOrderer.MethodName.class)  
+public class TestMethodOrdered {
+
+}
+```
+
+### Running Test In Order By Index
+```
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)  
+public class TestMethodOrdered {
+
+}
+```
